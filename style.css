@@ -55,118 +55,130 @@ nav ul li a:hover {
 }
 
 /* =================================================
-   [INTRO SECTION]
-   - 참고 사이트와 동일한 좌/우 구조
+   HERO SECTION (REFERENCE STYLE)
 ================================================= */
-.intro {
+.hero {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 96px 48px;
+  padding: 100px 48px;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 56px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
 }
 
-/* ---------------- LEFT ---------------- */
-.intro-left h1 {
-  font-size: 40px;
+/* ---------- LEFT TEXT ---------- */
+.hero-eyebrow {
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
+  color: #7fb6ff; /* 연한 파랑 강조 */
+  margin-bottom: 12px;
 }
 
-.intro-desc {
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0b3c5d;
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+
+.hero-desc {
   font-size: 16px;
-  color: #3a5f7d;
+  color: #4f6f87;
   margin-bottom: 32px;
 }
 
-.name {
+.hero-name {
   font-size: 22px;
   font-weight: 700;
+  margin-bottom: 12px;
 }
 
-.name span {
+.hero-name span {
   font-size: 14px;
   font-weight: 500;
   color: #6b8fa8;
   margin-left: 8px;
 }
 
-/* INFO GRID */
-.info-grid {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.hero-history {
+  list-style: none;
+  font-size: 14px;
+  color: #5b7c95;
+  margin-bottom: 28px;
+}
+
+/* ---------- METRICS ---------- */
+.hero-metrics {
+  display: flex;
   gap: 16px;
+  margin-bottom: 28px;
 }
 
-.info-box {
-  background: #f4fbff;
-  border-radius: 14px;
-  padding: 18px 20px;
-  border: 1px solid rgba(0,0,0,0.04);
+.metric-circle {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7fb6ff, #3b82f6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.info-box small {
+.metric-circle strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.metric-circle span {
   font-size: 12px;
-  color: #6b8fa8;
+  opacity: 0.9;
 }
 
-.info-box strong {
-  display: block;
-  font-size: 16px;
-  margin-top: 6px;
+/* ---------- TAGS ---------- */
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
-/* LINK BUTTONS */
-.link-group {
-  margin-top: 32px;
+.hero-tags span {
+  background: #eef6ff;
+  color: #3b82f6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* ---------- LINKS ---------- */
+.hero-links {
   display: flex;
   gap: 12px;
 }
 
-.link-group a {
+.hero-links a {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid #bcdfff;
+  border: 1px solid #cfe3ff;
   text-decoration: none;
   font-size: 14px;
   color: #0b3c5d;
-  background: #ffffff;
+  background: white;
 }
 
-.link-group a:hover {
-  background: #eaf6ff;
-}
-
-/* ---------------- RIGHT ---------------- */
-.intro-right {
-  background: #f4fbff;
-  border-radius: 20px;
-  padding: 32px;
-  border: 1px solid rgba(0,0,0,0.05);
+/* ---------- RIGHT IMAGE ---------- */
+.hero-right {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.profile-circle {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #cfe9ff, #a6d4ff);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: 700;
-  color: #0b3c5d;
+  align-items: center;
 }
 
-.intro-right h3 {
-  font-size: 18px;
-}
-
-.intro-right p {
-  font-size: 14px;
-  color: #4f6f87;
+.hero-right img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
