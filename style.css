@@ -1,0 +1,172 @@
+/* =================================================
+   [RESET & BASE]
+================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Toss Product Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #eaf6ff;
+  color: #0b3c5d;
+  line-height: 1.6;
+}
+
+/* =================================================
+   [HEADER / NAVIGATION]
+   - 텍스트 메뉴
+   - 얇은 높이
+================================================= */
+header {
+  height: 56px;
+  padding: 0 48px;
+  background: #eaf6ff;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0b3c5d;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* =================================================
+   [INTRO SECTION]
+   - 참고 사이트와 동일한 좌/우 구조
+================================================= */
+.intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+}
+
+/* ---------------- LEFT ---------------- */
+.intro-left h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.intro-desc {
+  font-size: 16px;
+  color: #3a5f7d;
+  margin-bottom: 32px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.name span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b8fa8;
+  margin-left: 8px;
+}
+
+/* INFO GRID */
+.info-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.info-box {
+  background: #f4fbff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.info-box small {
+  font-size: 12px;
+  color: #6b8fa8;
+}
+
+.info-box strong {
+  display: block;
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+/* LINK BUTTONS */
+.link-group {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.link-group a {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #bcdfff;
+  text-decoration: none;
+  font-size: 14px;
+  color: #0b3c5d;
+  background: #ffffff;
+}
+
+.link-group a:hover {
+  background: #eaf6ff;
+}
+
+/* ---------------- RIGHT ---------------- */
+.intro-right {
+  background: #f4fbff;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #cfe9ff, #a6d4ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0b3c5d;
+}
+
+.intro-right h3 {
+  font-size: 18px;
+}
+
+.intro-right p {
+  font-size: 14px;
+  color: #4f6f87;
+}
