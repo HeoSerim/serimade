@@ -3,12 +3,354 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>serimade</title>
+  <title>serimade | Portfolio</title>
+  <style>
+    :root{
+      --bg1:#eaf6ff;        /* 전체 배경 하늘색 */
+      --bg2:#dcefff;        /* 배경 그라데이션 보조 */
+      --card:#ffffff;       /* 카드 배경 */
+      --text:#0b1220;       /* 본문 */
+      --muted:#51607a;      /* 보조텍스트 */
+      --line:#cfe3ff;       /* 테두리 */
+      --accent:#2f7cff;     /* 포인트 파랑 */
+      --accent2:#66b7ff;    /* 포인트 하늘 */
+      --shadow: 0 14px 30px rgba(15, 52, 120, 0.10);
+      --radius:22px;
+    }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
+      color:var(--text);
+      line-height:1.65;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, var(--bg2), transparent 60%),
+        radial-gradient(1000px 600px at 95% 10%, #cfe8ff, transparent 55%),
+        linear-gradient(180deg, var(--bg1), #ffffff);
+      min-height:100vh;
+    }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 18px; }
+    header{
+      position: sticky;
+      top:0;
+      z-index: 20;
+      background: rgba(234,246,255,0.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(207,227,255,0.8);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 10px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .dot{
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(47,124,255,0.12);
+    }
+    .menu{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .menu a{
+      color: var(--text);
+      border: 1px solid rgba(207,227,255,0.8);
+      background: rgba(255,255,255,0.55);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .menu a:hover{
+      background: rgba(255,255,255,0.95);
+      text-decoration:none;
+    }
+
+    .hero{ padding: 34px 0 18px; }
+    .heroCard{
+      border: 1px solid rgba(207,227,255,0.9);
+      background: rgba(255,255,255,0.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+    }
+    .sub{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .chip{
+      border: 1px solid rgba(207,227,255,0.9);
+      background: rgba(234,246,255,0.75);
+      color: #17325f;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+    .cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(47,124,255,0.22);
+      background: rgba(47,124,255,0.10);
+      color: #0b2b5c;
+      font-weight: 650;
+      font-size: 14px;
+      text-decoration:none;
+    }
+    .btn:hover{ background: rgba(47,124,255,0.16); text-decoration:none; }
+    .btn.secondary{
+      border: 1px solid rgba(207,227,255,0.9);
+      background: rgba(255,255,255,0.65);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .btn.secondary:hover{ background: rgba(255,255,255,0.95); }
+
+    section{ padding: 22px 0; }
+    .secTitle{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+      margin: 0 0 10px;
+    }
+    h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .hint{ color: var(--muted); font-size: 13px; margin:0; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 12;
+      border: 1px solid rgba(207,227,255,0.9);
+      background: rgba(255,255,255,0.82);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .cardTitle{ margin:0 0 6px; font-size: 16px; }
+    .meta{ margin:0 0 10px; color: var(--muted); font-size: 13px; }
+    ul{ margin: 0; padding-left: 18px; }
+    li{ margin: 6px 0; color: #112241; }
+
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .tag{
+      font-size: 12px;
+      border: 1px solid rgba(47,124,255,0.18);
+      background: rgba(102,183,255,0.14);
+      color: #0b2b5c;
+      padding: 6px 9px;
+      border-radius: 999px;
+    }
+
+    .topBtn{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(207,227,255,0.9);
+      background: rgba(255,255,255,0.85);
+      box-shadow: var(--shadow);
+      padding: 10px 12px;
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 700;
+    }
+    .topBtn:hover{ background: rgba(255,255,255,0.98); text-decoration:none; }
+
+    @media (min-width: 860px){
+      .card.half{ grid-column: span 6; }
+      .card.third{ grid-column: span 4; }
+    }
+  </style>
 </head>
 <body>
   <a id="top"></a>
-  <h1>serimade</h1>
-  <p>Logistics & Operations Portfolio</p>
-  <p><a href="#top">Top</a></p>
+
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>serimade</span>
+        </div>
+        <div class="menu">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#top">Top</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="heroCard">
+        <h1>허세림 | Logistics & Operations Portfolio</h1>
+        <p class="sub">SCM · 운영기획 · 데이터 기반 문제정의와 실행 중심으로 정리했습니다.</p>
+        <div class="chips">
+          <span class="chip">KTX 특송 운영/스케줄 최적화</span>
+          <span class="chip">운영 기준 설계</span>
+          <span class="chip">보고서·PPT 산출물</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#projects">프로젝트 보기</a>
+          <a class="btn secondary" href="#contact">연락하기</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="projects">
+      <div class="secTitle">
+        <h2>Projects</h2>
+        <p class="hint">대표 3개만 먼저 올리고, 나중에 늘리는 방식이 제일 깔끔합니다.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3 class="cardTitle">KTX 특송 서비스 운영 LINK 최적화</h3>
+          <p class="meta">캡스톤 디자인 | 협업: 짐캐리 | 역할: 운영 기준 정리, 결과물 구조화</p>
+          <ul>
+            <li>현행 시간표와 인력 제약을 반영해 최소 운영 기준을 정의했습니다.</li>
+            <li>수요 기반 관점에서 개선 방향과 적용 우선순위를 도출했습니다.</li>
+            <li>결과를 표·그림 중심으로 정리해 보고서와 발표자료로 연결했습니다.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Operations Planning</span>
+            <span class="tag">Network View</span>
+            <span class="tag">Documentation</span>
+          </div>
+          <div class="cta">
+            <a class="btn secondary" href="#" onclick="alert('여기에 PDF 링크를 넣으면 됩니다.'); return false;">산출물(PDF)</a>
+            <a class="btn secondary" href="#" onclick="alert('여기에 자료/리포 링크를 넣으면 됩니다.'); return false;">자료</a>
+          </div>
+        </div>
+
+        <div class="card half">
+          <h3 class="cardTitle">유닛로드시스템 창의성 공모전</h3>
+          <p class="meta">다회용 수송 보냉백 아이디어 | 우수상</p>
+          <ul>
+            <li>문제정의부터 요구사항, 설계안까지 제안서 흐름을 구성했습니다.</li>
+            <li>비용, 내구, 운영성을 동시에 설명할 수 있는 기준을 정리했습니다.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Product/Packaging</span>
+            <span class="tag">KPI Thinking</span>
+          </div>
+        </div>
+
+        <div class="card half">
+          <h3 class="cardTitle">산업·직무 분석 프로젝트</h3>
+          <p class="meta">물류기업군 및 직무 비교 분석</p>
+          <ul>
+            <li>기업, 직무, 역량을 비교 가능한 표로 정리했습니다.</li>
+            <li>지원 전략으로 바로 연결되는 인사이트를 도출했습니다.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Research</span>
+            <span class="tag">Structured Writing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="secTitle">
+        <h2>Skills</h2>
+        <p class="hint">코드보다 정리와 설계 능력이 보이게 적는 게 포인트입니다.</p>
+      </div>
+      <div class="grid">
+        <div class="card third">
+          <h3 class="cardTitle">Analysis</h3>
+          <p class="meta">정리, 검증, 시각화</p>
+          <ul>
+            <li>Excel: 피벗, 함수, 데이터 정리</li>
+            <li>R: 분석 결과 정리 및 시각화 경험</li>
+          </ul>
+        </div>
+        <div class="card third">
+          <h3 class="cardTitle">Planning</h3>
+          <p class="meta">기준 설정, 우선순위</p>
+          <ul>
+            <li>운영 제약 기반 기준표 구성</li>
+            <li>실행 가능한 제안 구조화</li>
+          </ul>
+        </div>
+        <div class="card third">
+          <h3 class="cardTitle">Docs</h3>
+          <p class="meta">읽히는 문서</p>
+          <ul>
+            <li>PPT 스토리라인, 도식화</li>
+            <li>보고서 문단 구성</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="secTitle">
+        <h2>About</h2>
+        <p class="hint">불필요한 미사여구 없이, 팩트만 얹는 게 가장 강합니다.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>한국해양대학교 물류시스템공학과 재학, 운영·기획 직무 지향</li>
+            <li>관심 분야: SCM, 운영기획, 프로세스 개선, 데이터 기반 의사결정</li>
+            <li>강점: 문제를 기준으로 쪼개고, 실행 가능한 형태로 정리합니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="secTitle">
+        <h2>Contact</h2>
+        <p class="hint">연락 정보는 최소한으로 깔끔하게 두는 게 안전합니다.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>Email: 여기에 이메일</li>
+            <li>GitHub: <a href="https://github.com/HeoSerim">github.com/HeoSerim</a></li>
+            <li>Resume/Notion: 여기에 링크</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="topBtn" href="#top">↑</a>
 </body>
 </html>
