@@ -1,100 +1,71 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* =================================================
+   RESET
+================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <!-- FONT -->
-  <link rel="stylesheet" href="https://static.toss.im/tps/main.css">
+body {
+  font-family: "Toss Product Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #eaf6ff;
+  color: #111;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+/* =================================================
+   HEADER
+================================================= */
+.site-header {
+  height: 64px;
+  background: #f3faff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
 
-  <title>SERIM Portfolio</title>
-</head>
+.header-inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-<body>
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">SERIM</div>
+.nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+}
 
-      <nav class="site-nav">
-        <a href="#top">홈</a>
-        <a href="#activities">활동</a>
-        <a href="#certs">어학·자격증</a>
-        <a href="#scholarships">장학금</a>
-        <a href="#courses">교과</a>
-        <a href="#volunteer">봉사</a>
-        <a href="#programs">프로그램</a>
-        <a href="#goals">목표</a>
-      </nav>
-    </div>
-  </header>
+/* =================================================
+   HERO SECTION
+================================================= */
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+}
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 80px;
+  align-items: center;
+}
 
-      <!-- LEFT -->
-      <div class="hero-left">
-
-        <!-- [강조 문장] -->
-        <p class="hero-eyebrow">세상을 배움으로 채우는</p>
-
-        <!-- [메인 타이틀] -->
-        <h1 class="hero-title">
-          미래 <span class="accent">물류 기획자</span>
-        </h1>
-
-        <!-- [한 줄 소개] -->
-        <p class="hero-desc">
-          작은 데이터와 흐름의 분석으로<br>
-          현실적인 SCM 의사결정을 설계합니다.
-        </p>
-
-        <!-- [이름] -->
-        <div class="hero-name">
-          허세림 <span>HEO SERIM</span>
-        </div>
-
-        <!-- [이력] -->
-        <ul class="hero-history">
-          <li>한국해양대학교 물류시스템공학과</li>
-          <li>관심 직무 · SCM / 운영기획</li>
-        </ul>
-
-        <!-- [수치 영역] -->
-        <div class="hero-metrics">
-          <div class="metric-circle">
-            <strong>3.51</strong>
-            <span>GPA</span>
-          </div>
-          <div class="metric-circle">
-            <strong>3.92</strong>
-            <span>전공 GPA</span>
-          </div>
-        </div>
-
-        <!-- [링크 버튼] -->
-        <div class="hero-links">
-          <a href="#">프로젝트</a>
-          <a href="mailto:">이메일</a>
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-        </div>
-
-      </div>
-
-      <!-- RIGHT -->
-      <div class="hero-right">
-        <!-- 🔥 사진 파일명만 나중에 바꾸면 됨 -->
-        <img src="profile.jpg" alt="profile" />
-      </div>
-
-    </div>
-  </section>
-
-</body>
-</html>
+/* ---------------- LEFT ---------------- */
+.hero-accent {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #2f6fff;
+  fo
