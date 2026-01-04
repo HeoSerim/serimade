@@ -1,215 +1,302 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>serimade | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>serimade | 허세림 포트폴리오</title>
   <style>
     :root{
-      --bg1:#eaf6ff;        /* 전체 배경 하늘색 */
-      --bg2:#dcefff;        /* 배경 그라데이션 보조 */
-      --card:#ffffff;       /* 카드 배경 */
-      --text:#0b1220;       /* 본문 */
-      --muted:#51607a;      /* 보조텍스트 */
-      --line:#cfe3ff;       /* 테두리 */
-      --accent:#2f7cff;     /* 포인트 파랑 */
-      --accent2:#66b7ff;    /* 포인트 하늘 */
-      --shadow: 0 14px 30px rgba(15, 52, 120, 0.10);
-      --radius:22px;
+      --bg:#dff2ff;
+      --bg2:#eef9ff;
+      --paper:#ffffff;
+      --ink:#081327;
+      --muted:#4d6286;
+      --line:#c7e6ff;
+      --accent:#0b5bd3;
+      --accent2:#2aa7ff;
+      --chip:#e8f6ff;
+      --shadow: 0 18px 40px rgba(8, 40, 92, 0.12);
+      --r: 20px;
+      --max: 980px;
     }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
-      color:var(--text);
-      line-height:1.65;
+      color:var(--ink);
+      line-height:1.7;
       background:
-        radial-gradient(1200px 700px at 15% -10%, var(--bg2), transparent 60%),
-        radial-gradient(1000px 600px at 95% 10%, #cfe8ff, transparent 55%),
-        linear-gradient(180deg, var(--bg1), #ffffff);
-      min-height:100vh;
+        radial-gradient(900px 520px at 15% -10%, #cfeaff, transparent 60%),
+        radial-gradient(800px 520px at 95% 5%, #bfe3ff, transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2) 40%, #ffffff 100%);
     }
     a{ color:var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
-    .wrap{ max-width: 980px; margin: 0 auto; padding: 18px; }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:18px; }
+    .topAnchor{ position:relative; top:-84px; }
     header{
-      position: sticky;
+      position:sticky;
       top:0;
-      z-index: 20;
-      background: rgba(234,246,255,0.72);
+      z-index:50;
+      background: rgba(223,242,255,0.78);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(207,227,255,0.8);
+      border-bottom: 1px solid rgba(199,230,255,0.85);
     }
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 14px;
-      padding: 10px 0;
+      gap:14px;
+      padding:10px 0;
     }
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      font-weight:800;
+      letter-spacing:-0.02em;
     }
-    .dot{
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
+    .logoDot{
+      width:12px;
+      height:12px;
+      border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(47,124,255,0.12);
+      box-shadow: 0 0 0 6px rgba(11,91,211,0.12);
     }
     .menu{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
+      gap:8px;
     }
     .menu a{
-      color: var(--text);
-      border: 1px solid rgba(207,227,255,0.8);
-      background: rgba(255,255,255,0.55);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
+      color:var(--ink);
+      font-size:14px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(199,230,255,0.9);
+      background: rgba(255,255,255,0.60);
     }
     .menu a:hover{
       background: rgba(255,255,255,0.95);
       text-decoration:none;
     }
 
-    .hero{ padding: 34px 0 18px; }
-    .heroCard{
-      border: 1px solid rgba(207,227,255,0.9);
+    .hero{ padding:24px 0 10px; }
+    .panel{
+      border:1px solid rgba(199,230,255,0.95);
       background: rgba(255,255,255,0.78);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
-      padding: 20px;
+      padding:18px;
     }
-    h1{
-      margin:0 0 10px;
-      font-size: 34px;
-      letter-spacing: -0.03em;
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
-    .sub{
+    .headline{
+      font-size:34px;
+      letter-spacing:-0.03em;
+      margin:0 0 8px;
+    }
+    .lead{
       margin:0 0 14px;
-      color: var(--muted);
-      font-size: 15px;
+      color:var(--muted);
+      font-size:15px;
     }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .nameBlock{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:baseline;
+      margin-top: 10px;
+    }
+    .krName{ font-size:20px; font-weight:800; }
+    .enName{ font-size:14px; color:var(--muted); font-weight:700; letter-spacing:0.02em; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stat{
+      border:1px solid rgba(199,230,255,0.95);
+      background: rgba(232,246,255,0.75);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+    .statLabel{ font-size:12px; color:var(--muted); margin:0; }
+    .statValue{ font-size:18px; font-weight:850; margin:2px 0 0; }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 12px;
+    }
     .chip{
-      border: 1px solid rgba(207,227,255,0.9);
-      background: rgba(234,246,255,0.75);
-      color: #17325f;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 13px;
+      font-size:13px;
+      border:1px solid rgba(199,230,255,0.95);
+      background: var(--chip);
+      padding:7px 10px;
+      border-radius:999px;
+      color:#12355f;
     }
-    .cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
-    .btn{
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+      align-items:center;
+    }
+    .pill{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(47,124,255,0.22);
-      background: rgba(47,124,255,0.10);
-      color: #0b2b5c;
-      font-weight: 650;
-      font-size: 14px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(11,91,211,0.22);
+      background: rgba(11,91,211,0.10);
+      color:#0a2b63;
+      font-size:14px;
+      font-weight:650;
       text-decoration:none;
     }
-    .btn:hover{ background: rgba(47,124,255,0.16); text-decoration:none; }
-    .btn.secondary{
-      border: 1px solid rgba(207,227,255,0.9);
-      background: rgba(255,255,255,0.65);
-      font-weight: 600;
-      color: var(--text);
+    .pill:hover{ background: rgba(11,91,211,0.16); text-decoration:none; }
+    .pill.secondary{
+      border:1px solid rgba(199,230,255,0.95);
+      background: rgba(255,255,255,0.70);
+      color:var(--ink);
+      font-weight:620;
     }
-    .btn.secondary:hover{ background: rgba(255,255,255,0.95); }
+    .pill.secondary:hover{ background: rgba(255,255,255,0.95); }
 
-    section{ padding: 22px 0; }
-    .secTitle{
+    .profileBox{
+      border:1px solid rgba(199,230,255,0.95);
+      background: rgba(255,255,255,0.70);
+      border-radius: var(--r);
+      padding: 14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .avatar{
+      width:82px;
+      height:82px;
+      border-radius: 18px;
+      border:1px solid rgba(199,230,255,0.95);
+      background: linear-gradient(135deg, rgba(42,167,255,0.25), rgba(11,91,211,0.15));
+      overflow:hidden;
+      flex: 0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#0a2b63;
+      font-weight:850;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .profileText{ min-width: 0; }
+    .profileText p{ margin:0; }
+    .small{ font-size:13px; color:var(--muted); }
+    .bold{ font-weight:800; }
+
+    section{ padding: 18px 0; }
+    .secHeader{
       display:flex;
       align-items:baseline;
       justify-content:space-between;
-      gap: 10px;
+      gap:10px;
       margin: 0 0 10px;
     }
-    h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .hint{ color: var(--muted); font-size: 13px; margin:0; }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .card{
-      grid-column: span 12;
-      border: 1px solid rgba(207,227,255,0.9);
+    h2{ margin:0; font-size:18px; letter-spacing:-0.01em; }
+    .hint{ margin:0; font-size:13px; color:var(--muted); }
+    .content{
+      border:1px solid rgba(199,230,255,0.95);
       background: rgba(255,255,255,0.82);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
       padding: 16px;
     }
-    .cardTitle{ margin:0 0 6px; font-size: 16px; }
-    .meta{ margin:0 0 10px; color: var(--muted); font-size: 13px; }
+    h3{ margin: 0 0 6px; font-size:16px; }
+    .meta{ margin: 0 0 10px; color: var(--muted); font-size: 13px; }
     ul{ margin: 0; padding-left: 18px; }
-    li{ margin: 6px 0; color: #112241; }
-
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
-    .tag{
-      font-size: 12px;
-      border: 1px solid rgba(47,124,255,0.18);
-      background: rgba(102,183,255,0.14);
-      color: #0b2b5c;
-      padding: 6px 9px;
-      border-radius: 999px;
+    li{ margin: 6px 0; }
+    .mediaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 12px;
     }
+    .thumb{
+      width: 220px;
+      border-radius: 14px;
+      border: 1px solid rgba(199,230,255,0.95);
+      overflow:hidden;
+      background:#fff;
+    }
+    .thumb img{ width:100%; height:auto; display:block; }
+    .docLink{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(199,230,255,0.95);
+      background: rgba(255,255,255,0.70);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration:none;
+    }
+    .docLink:hover{ background: rgba(255,255,255,0.95); text-decoration:none; }
 
     .topBtn{
       position: fixed;
       right: 16px;
       bottom: 16px;
+      width: 44px;
+      height: 44px;
       border-radius: 999px;
-      border: 1px solid rgba(207,227,255,0.9);
-      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(199,230,255,0.95);
+      background: rgba(255,255,255,0.86);
       box-shadow: var(--shadow);
-      padding: 10px 12px;
-      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--ink);
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 900;
     }
     .topBtn:hover{ background: rgba(255,255,255,0.98); text-decoration:none; }
 
     @media (min-width: 860px){
-      .card.half{ grid-column: span 6; }
-      .card.third{ grid-column: span 4; }
+      .heroGrid{ grid-template-columns: 1.35fr 0.65fr; align-items:start; }
+      .stats{ grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-  <a id="top"></a>
+  <div id="top" class="topAnchor"></div>
 
   <header>
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <span class="dot"></span>
+          <span class="logoDot"></span>
           <span>serimade</span>
         </div>
         <div class="menu">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a href="#top">Top</a>
+          <a href="#top">홈</a>
+          <a href="#activities">활동</a>
+          <a href="#certs">어학·자격증</a>
+          <a href="#awards">수상·장학</a>
+          <a href="#courses">교과</a>
+          <a href="#projects">프로젝트</a>
+          <a href="#goals">목표</a>
         </div>
       </div>
     </div>
@@ -217,140 +304,182 @@
 
   <main class="wrap">
     <div class="hero">
-      <div class="heroCard">
-        <h1>허세림 | Logistics & Operations Portfolio</h1>
-        <p class="sub">SCM · 운영기획 · 데이터 기반 문제정의와 실행 중심으로 정리했습니다.</p>
-        <div class="chips">
-          <span class="chip">KTX 특송 운영/스케줄 최적화</span>
-          <span class="chip">운영 기준 설계</span>
-          <span class="chip">보고서·PPT 산출물</span>
-        </div>
-        <div class="cta">
-          <a class="btn" href="#projects">프로젝트 보기</a>
-          <a class="btn secondary" href="#contact">연락하기</a>
+      <div class="panel">
+        <div class="heroGrid">
+          <div>
+            <h1 class="headline">현장 제약을 기준으로 바꾸는 운영기획자</h1>
+            <p class="lead">수요, 시간표, 인력 같은 현실 제약을 정리하고 실행 가능한 운영 기준으로 변환하는 방식으로 프로젝트를 진행합니다.</p>
+            <div class="nameBlock">
+              <div class="krName">허세림</div>
+              <div class="enName">HEO SERIM</div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <p class="statLabel">전공</p>
+                <p class="statValue">물류시스템공학</p>
+              </div>
+              <div class="stat">
+                <p class="statLabel">관심 직무</p>
+                <p class="statValue">SCM · 운영기획</p>
+              </div>
+              <div class="stat">
+                <p class="statLabel">GPA</p>
+                <p class="statValue">3.51 / 4.5</p>
+              </div>
+              <div class="stat">
+                <p class="statLabel">전공 GPA</p>
+                <p class="statValue">3.92 / 4.5</p>
+              </div>
+            </div>
+
+            <div class="chips">
+              <span class="chip">KTX 특송</span>
+              <span class="chip">스케줄 최적화</span>
+              <span class="chip">운영 기준 설계</span>
+              <span class="chip">데이터 정리</span>
+              <span class="chip">PPT·보고서</span>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="#projects">프로젝트 보기</a>
+              <a class="pill secondary" href="mailto:youremail@example.com">이메일</a>
+              <a class="pill secondary" href="https://github.com/HeoSerim" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="pill secondary" href="#" onclick="alert('여기에 LinkedIn/Notion 링크를 넣으면 돼.'); return false;">LinkedIn/Notion</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="profileBox">
+              <div class="avatar">
+                <span>HS</span>
+                <!-- 프로필 이미지 올리면 아래처럼 바꿔서 사용해. -->
+                <!-- <img src="assets/profile.jpg" alt="profile"> -->
+              </div>
+              <div class="profileText">
+                <p class="bold">Logistics & Operations Portfolio</p>
+                <p class="small">테마: 하늘색 배경 + 짙은 파랑 포인트, 원페이지 섹션 점프 구조</p>
+              </div>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div class="content">
+              <h3>한 줄 소개</h3>
+              <p class="meta">이 문장만 제대로 쓰면 HR이 끝까지 내려본다.</p>
+              <p style="margin:0;">현장에 있는 제약을 기준으로 문제를 쪼개고, 바로 실행 가능한 운영안으로 정리합니다.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <section id="activities">
+      <div class="secHeader">
+        <h2>활동</h2>
+        <p class="hint">기록형이 아니라 역할과 결과 중심으로 짧고 단단하게</p>
+      </div>
+      <div class="content">
+        <h3>삼성 드림클래스 멘토링</h3>
+        <p class="meta">중3 대상 멘토링 | 수업 기획 및 진행</p>
+        <ul>
+          <li>학습 목표를 30분 활동 구조로 분해해 전달했습니다.</li>
+          <li>이해도 차이를 고려해 예시 중심으로 재구성했습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certs">
+      <div class="secHeader">
+        <h2>어학·자격증</h2>
+        <p class="hint">팩트는 표처럼 정리하면 신뢰가 올라간다</p>
+      </div>
+      <div class="content">
+        <ul>
+          <li>TOEIC 825, OPIc/TOSS IH(150)</li>
+          <li>물류관리사, 유통관리사 2급, 스마트 해상물류관리사</li>
+          <li>응시 예정: 무역영어, ADsP</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="secHeader">
+        <h2>수상·장학</h2>
+        <p class="hint">수상은 한 줄, 내가 만든 가치만 한 줄 더</p>
+      </div>
+      <div class="content">
+        <h3>유닛로드시스템 창의성 공모전 우수상</h3>
+        <p class="meta">e'co-load 팀 | 다회용 수송 보냉백 아이디어</p>
+        <ul>
+          <li>요구사항을 운영 관점으로 정리하고 설계안에 반영했습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="secHeader">
+        <h2>교과</h2>
+        <p class="hint">관련 과목은 ‘왜 도움이 됐는지’ 한 줄씩만</p>
+      </div>
+      <div class="content">
+        <ul>
+          <li>풀필먼트 실무: 물류센터 운영 흐름과 성과지표 관점</li>
+          <li>시스템공학: 제약 조건 기반 의사결정 프레임</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="projects">
-      <div class="secTitle">
-        <h2>Projects</h2>
-        <p class="hint">대표 3개만 먼저 올리고, 나중에 늘리는 방식이 제일 깔끔합니다.</p>
+      <div class="secHeader">
+        <h2>프로젝트</h2>
+        <p class="hint">PDF와 이미지를 둘 다 보여주는 섹션</p>
       </div>
-      <div class="grid">
-        <div class="card">
-          <h3 class="cardTitle">KTX 특송 서비스 운영 LINK 최적화</h3>
-          <p class="meta">캡스톤 디자인 | 협업: 짐캐리 | 역할: 운영 기준 정리, 결과물 구조화</p>
-          <ul>
-            <li>현행 시간표와 인력 제약을 반영해 최소 운영 기준을 정의했습니다.</li>
-            <li>수요 기반 관점에서 개선 방향과 적용 우선순위를 도출했습니다.</li>
-            <li>결과를 표·그림 중심으로 정리해 보고서와 발표자료로 연결했습니다.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Operations Planning</span>
-            <span class="tag">Network View</span>
-            <span class="tag">Documentation</span>
+
+      <div class="content">
+        <h3>KTX 특송 서비스 운영 LINK 최적화</h3>
+        <p class="meta">캡스톤 디자인 | 협업: 짐캐리 | 운영 기준 정리 및 결과물 구조화</p>
+        <ul>
+          <li>현행 시간표, 인력(2인 1조), 우선순위 기준을 운영 규칙으로 정리했습니다.</li>
+          <li>결과를 표·그림 중심으로 보고서와 발표자료에 연결했습니다.</li>
+        </ul>
+
+        <div class="mediaRow">
+          <a class="docLink" href="assets/ktx-project.pdf" target="_blank" rel="noreferrer">PDF 열기</a>
+          <a class="docLink" href="assets/ktx-slide.pdf" target="_blank" rel="noreferrer">발표 PDF</a>
+        </div>
+
+        <div class="mediaRow">
+          <div class="thumb">
+            <img src="assets/ktx-1.png" alt="KTX project image 1" />
           </div>
-          <div class="cta">
-            <a class="btn secondary" href="#" onclick="alert('여기에 PDF 링크를 넣으면 됩니다.'); return false;">산출물(PDF)</a>
-            <a class="btn secondary" href="#" onclick="alert('여기에 자료/리포 링크를 넣으면 됩니다.'); return false;">자료</a>
+          <div class="thumb">
+            <img src="assets/ktx-2.png" alt="KTX project image 2" />
+          </div>
+          <div class="thumb">
+            <img src="assets/ktx-3.png" alt="KTX project image 3" />
           </div>
         </div>
 
-        <div class="card half">
-          <h3 class="cardTitle">유닛로드시스템 창의성 공모전</h3>
-          <p class="meta">다회용 수송 보냉백 아이디어 | 우수상</p>
-          <ul>
-            <li>문제정의부터 요구사항, 설계안까지 제안서 흐름을 구성했습니다.</li>
-            <li>비용, 내구, 운영성을 동시에 설명할 수 있는 기준을 정리했습니다.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Product/Packaging</span>
-            <span class="tag">KPI Thinking</span>
-          </div>
-        </div>
-
-        <div class="card half">
-          <h3 class="cardTitle">산업·직무 분석 프로젝트</h3>
-          <p class="meta">물류기업군 및 직무 비교 분석</p>
-          <ul>
-            <li>기업, 직무, 역량을 비교 가능한 표로 정리했습니다.</li>
-            <li>지원 전략으로 바로 연결되는 인사이트를 도출했습니다.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Research</span>
-            <span class="tag">Structured Writing</span>
-          </div>
-        </div>
+        <p class="small" style="margin:12px 0 0;">위 링크와 이미지는 assets 폴더에 파일을 올리면 바로 작동합니다.</p>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="secTitle">
-        <h2>Skills</h2>
-        <p class="hint">코드보다 정리와 설계 능력이 보이게 적는 게 포인트입니다.</p>
+    <section id="goals">
+      <div class="secHeader">
+        <h2>목표</h2>
+        <p class="hint">지원 직무 기준으로 3줄만</p>
       </div>
-      <div class="grid">
-        <div class="card third">
-          <h3 class="cardTitle">Analysis</h3>
-          <p class="meta">정리, 검증, 시각화</p>
-          <ul>
-            <li>Excel: 피벗, 함수, 데이터 정리</li>
-            <li>R: 분석 결과 정리 및 시각화 경험</li>
-          </ul>
-        </div>
-        <div class="card third">
-          <h3 class="cardTitle">Planning</h3>
-          <p class="meta">기준 설정, 우선순위</p>
-          <ul>
-            <li>운영 제약 기반 기준표 구성</li>
-            <li>실행 가능한 제안 구조화</li>
-          </ul>
-        </div>
-        <div class="card third">
-          <h3 class="cardTitle">Docs</h3>
-          <p class="meta">읽히는 문서</p>
-          <ul>
-            <li>PPT 스토리라인, 도식화</li>
-            <li>보고서 문단 구성</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="secTitle">
-        <h2>About</h2>
-        <p class="hint">불필요한 미사여구 없이, 팩트만 얹는 게 가장 강합니다.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <ul>
-            <li>한국해양대학교 물류시스템공학과 재학, 운영·기획 직무 지향</li>
-            <li>관심 분야: SCM, 운영기획, 프로세스 개선, 데이터 기반 의사결정</li>
-            <li>강점: 문제를 기준으로 쪼개고, 실행 가능한 형태로 정리합니다.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="secTitle">
-        <h2>Contact</h2>
-        <p class="hint">연락 정보는 최소한으로 깔끔하게 두는 게 안전합니다.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <ul>
-            <li>Email: 여기에 이메일</li>
-            <li>GitHub: <a href="https://github.com/HeoSerim">github.com/HeoSerim</a></li>
-            <li>Resume/Notion: 여기에 링크</li>
-          </ul>
-        </div>
+      <div class="content">
+        <ul>
+          <li>SCM/운영기획 직무에서 운영 기준과 지표를 함께 설계할 수 있는 신입이 되겠습니다.</li>
+          <li>데이터 정리와 문서화 역량으로 의사결정을 빠르게 돕겠습니다.</li>
+          <li>현장 제약을 과장 없이 구조화해 실행 가능한 대안을 제시하겠습니다.</li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <a class="topBtn" href="#top">↑</a>
+  <a class="topBtn" href="#top" aria-label="Back to top">↑</a>
 </body>
 </html>
